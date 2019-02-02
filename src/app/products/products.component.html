@@ -1,0 +1,27 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="box">
+                <h6>{{title}}</h6>
+                <hr>
+                <p class="sub-menu">
+                    <a [routerLink]="['product', 'add']"
+                       routerLinkActive="highlighter"
+                       appHighlight highlightColor="yellow"
+                    >Add Product</a>
+                </p>
+                <p class="sub-menu">
+                    <a [routerLink]="['product', 'list']"
+                       routerLinkActive="highlighter"
+                       appHighlight highlightColor="yellow"
+                    >List Product</a>
+                </p>                        
+            </div>
+        </div>
+        <div class="col-md-9">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

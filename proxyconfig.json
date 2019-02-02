@@ -1,0 +1,7 @@
+{
+    "/endpoint": {
+        "target": "https://www.json-generator.com",
+        "secure": false,
+        "changeOrigin": true
+    }
+}

@@ -1,0 +1,21 @@
+<div class="container break">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12">
+      <ul class="nav nav-tabs">
+        <li role="presentation" class="nav-item">
+          <a class="nav-link" routerLinkActive="active" 
+             [routerLink]="['/home']">Home</a>
+        </li>
+        <li role="presentation" class="nav-item">
+          <a class="nav-link" routerLinkActive="active" 
+            [routerLink]="['/category']"
+            [queryParams] = "{action: 'list'}">Category</a>
+        </li>
+        <li role="presentation" class="nav-item">
+          <a class="nav-link" routerLinkActive="active" 
+             routerLink="/products">Product</a>
+        </li>        
+      </ul>
+    </div>
+  </div>
+</div>

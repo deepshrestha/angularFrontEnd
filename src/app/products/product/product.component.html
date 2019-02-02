@@ -1,0 +1,64 @@
+<div *ngIf="action == 'add'; then addProduct; else listProduct"></div>
+
+<ng-template #addProduct>
+  <form #frmData="ngForm">
+    <div class="form-group">
+      <label for="lblSerialNo">Serial No</label>
+      <input type="text" class="form-control" name="serialNo" ngModel >
+    </div>
+    <div class="form-group">
+      <label for="lblProductName">Product Name</label>
+      <input type="text" class="form-control" name="productName" ngModel >
+    </div>
+    <div class="form-group">
+      <label for="lblCategory">Category</label>
+      <select class="form-control" name="category" ngModel>
+        <option value="Mobile">Mobile</option>
+        <option value="Tablet">Tablet</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="lblStatus">Status</label>
+      <select class="form-control" name="status" ngModel>
+        <option *ngFor="let sts of statuses" [ngValue]="sts.id">
+          {{sts.value}}
+        </option>
+      </select>
+    </div>
+    <button type="button" class="btn btn-primary" (click)="onSaveData(frmData.value)">Submit</button>&nbsp;
+    <button type="button" class="btn btn-danger" (click)="onCancel()">Cancel</button>
+  </form>
+</ng-template>
+
+<ng-template #listProduct>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Serial No</th>
+        <th scope="col">Product Name</th>
+        <th scope="col">Category</th>
+        <th scope="col">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products">
+        <th scope="row">{{product.id}}</th>
+        <td>{{product.serialNo}}</td>
+        <td>{{product.productName}}</td>
+        <td>{{product.category}}</td>
+        <td scope="col">
+
+          <!-- <button [ngClass]="active.class" *ngIf="product.status" (click)="onButtonStatus($event)">Active</button>
+          <button [ngClass]="inactive.class" *ngIf="!product.status" (click)="onButtonStatus($event)">In-Active</button> -->
+          
+          <button [ngClass]="product.status == true ? active.class : inactive.class" 
+                  [innerText]="product.status == true ? active.text : inactive.text"
+                  (click)="onButtonStatus($event)">
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</ng-template>

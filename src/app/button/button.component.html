@@ -1,0 +1,13 @@
+<!-- <div>
+    <div *ngIf="status">
+        <button class="btn btn-success btn-sm" (click)="onToggleStatus($event)">Active</button>
+    </div>
+    <div *ngIf="!status">
+        <button class="btn btn-danger btn-sm" (click)="onToggleStatus($event)">In-Active</button>
+    </div>
+</div> -->
+
+<button [ngClass]="status == true ? active.class : inactive.class" 
+    [innerText]="status == true ? active.text : inactive.text"
+    (click)="onButtonComponent($event)">
+</button>
